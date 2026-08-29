@@ -31,11 +31,16 @@
 #define RCC_APB1ENR (*(volatile uint32_t *)(RCC_BASE + 0x40)) // For UART2,3 , I2C
 #define RCC_APB2ENR (*(volatile uint32_t *)(RCC_BASE + 0x44)) // For UART1, ADC, SPI1
 #define RCC_CSR (*(volatile uint32_t *)(RCC_BASE + 0x74))     // Reset Flags and LSI Enable
+#define ADC1_EN 1
+#define ADC2_EN 2
+#define ADC3_EN 3
 
 void rcc_enable_gpio(uint8_t port);
 void rcc_disable_gpio(uint8_t port);
 void rcc_enable_uart(uint8_t uart);
 void rcc_disable_uart(uint8_t uart);
 void rcc_enable_timer(uint32_t timer);
+void rcc_enable_adc(uint8_t adc);
+void rcc_disable_adc(uint8_t adc);
 
 #endif

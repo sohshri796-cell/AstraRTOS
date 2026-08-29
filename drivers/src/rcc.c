@@ -83,3 +83,32 @@ void rcc_enable_timer(uint32_t timer) {
         break;
     }
 }
+
+
+void rcc_enable_adc(uint8_t adc) {
+    switch(adc) {
+    case ADC1_EN:
+        RCC_APB2ENR |= (1 << 8);
+        break;
+    case ADC2_EN:
+        RCC_APB2ENR |= (1 << 9);
+        break;
+    case ADC3_EN:
+        RCC_APB2ENR |= (1 << 10);
+        break;
+    }
+}
+
+void rcc_disable_adc(uint8_t adc) {
+    switch(adc) {
+    case ADC1_EN:
+        RCC_APB2ENR &= ~(1 << 8);
+        break;
+    case ADC2_EN:
+        RCC_APB2ENR &= ~(1 << 9);
+        break;
+    case ADC3_EN:
+        RCC_APB2ENR &= ~(1 << 10);
+        break;
+    }
+}
